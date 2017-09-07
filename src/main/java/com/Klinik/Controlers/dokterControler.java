@@ -5,10 +5,31 @@
  */
 package com.Klinik.Controlers;
 
+import com.Klinik.Entities.dokterEntity;
+import com.Klinik.Repositories.dokterRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
 /**
  *
  * @author HP
  */
+
+@RestController
+@RequestMapping(value="/klinik")
 public class dokterControler {
     
+    @Autowired
+    private dokterRepository dokRepo;
+    
+    @RequestMapping(value = "/newDokter",method =RequestMethod.POST )
+    public ResponseEntity<dokterEntity> updateDokter(@RequestBody dokterEntity dokterEnt){
+        dokterEntity allDok=dokRepo.saveAndFlush(dokterEnt);
+        return new ResponseEntity<>(allDok,HttpStatus.CREATED);
+    }
 }

@@ -7,6 +7,8 @@ package com.Klinik.Entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import lombok.Data;
 
@@ -23,7 +25,8 @@ public class penangananEntity{
     
     @Column
     @Id
-    private String idPenanganan;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long idPenanganan;
     
     @Column
     private String idPasien;
