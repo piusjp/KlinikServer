@@ -21,13 +21,13 @@ import org.springframework.web.bind.annotation.RestController;
  */
 
 @RestController
-@RequestMapping(value="/klinik")
+@RequestMapping(value="/dokter")
 public class dokterControler {
     
     @Autowired
     private dokterRepository dokRepo;
     
-    @RequestMapping(value = "/newDokter",method =RequestMethod.POST )
+    @RequestMapping(value = "/newdokter",method =RequestMethod.POST )
     public ResponseEntity<dokterEntity> updateDokter(@RequestBody dokterEntity dokterEnt){
         dokterEntity allDok=dokRepo.saveAndFlush(dokterEnt);
         return new ResponseEntity<>(allDok,HttpStatus.CREATED);

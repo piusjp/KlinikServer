@@ -5,10 +5,18 @@
  */
 package com.Klinik.Repositories;
 
+import com.Klinik.Entities.pasienEntity;
+import java.io.Serializable;
+import java.util.List;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.rest.core.annotation.RestResource;
+
 /**
  *
  * @author HP
  */
-public interface pasienRepository {
+@RestResource
+public interface pasienRepository extends JpaRepository<pasienEntity, Long>{
     
+    public List<pasienEntity> findPasienEntitiesByNamaPasien(String namaPasien);
 }
