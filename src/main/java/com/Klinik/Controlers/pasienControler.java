@@ -6,7 +6,6 @@
 package com.Klinik.Controlers;
 
 import com.Klinik.Entities.pasienEntity;
-import com.Klinik.Repositories.dokterRepository;
 import com.Klinik.Repositories.pasienRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

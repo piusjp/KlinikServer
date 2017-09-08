@@ -5,10 +5,16 @@
  */
 package com.Klinik.Repositories;
 
+import com.Klinik.Entities.penangananEntity;
+import java.io.Serializable;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.rest.core.annotation.RestResource;
+
 /**
  *
  * @author HP
  */
-public interface penangananRepository {
+@RestResource
+public interface penangananRepository extends JpaRepository<penangananEntity, Long>{
     
 }
