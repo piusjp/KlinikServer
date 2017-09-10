@@ -7,6 +7,7 @@ package com.Klinik.Controlers;
 
 import com.Klinik.Entities.penangananEntity;
 import com.Klinik.Repositories.penangananRepository;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -30,5 +31,11 @@ public class penangananControler {
     public ResponseEntity<penangananEntity> updatePenanganan(@RequestBody penangananEntity penangananEnt){
         penangananEntity allPenanganan=penangananRepo.saveAndFlush(penangananEnt);
         return new ResponseEntity<>(allPenanganan,HttpStatus.CREATED);
+    }
+    
+    @RequestMapping(value = "/allpenanganan",method = RequestMethod.GET)
+    public ResponseEntity<List<penangananEntity>> allpenanganan(){
+        List<penangananEntity> allpenanganan=penangananRepo.findAll();
+        return new ResponseEntity<>(allpenanganan,HttpStatus.OK);
     }
 }

@@ -7,6 +7,7 @@ package com.Klinik.Controlers;
 
 import com.Klinik.Entities.dokterEntity;
 import com.Klinik.Repositories.dokterRepository;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,11 +26,17 @@ import org.springframework.web.bind.annotation.RestController;
 public class dokterControler {
     
     @Autowired
-    private dokterRepository dokRepo;
+    private dokterRepository dokterRepo;
     
     @RequestMapping(value = "/newdokter",method =RequestMethod.POST )
     public ResponseEntity<dokterEntity> updateDokter(@RequestBody dokterEntity dokterEnt){
-        dokterEntity allDok=dokRepo.saveAndFlush(dokterEnt);
-        return new ResponseEntity<>(allDok,HttpStatus.CREATED);
+        dokterEntity newDok=dokterRepo.saveAndFlush(dokterEnt);
+        return new ResponseEntity<>(newDok,HttpStatus.CREATED);
+    }
+    
+    @RequestMapping(value = "/alldokter",method = RequestMethod.GET)
+    public ResponseEntity<List<dokterEntity>> allpasien(){
+        List<dokterEntity> allDok=dokterRepo.findAll();
+        return new ResponseEntity<>(allDok,HttpStatus.OK);
     }
 }
