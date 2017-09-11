@@ -11,6 +11,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -38,5 +39,17 @@ public class dokterControler {
     public ResponseEntity<List<dokterEntity>> allpasien(){
         List<dokterEntity> allDok=dokterRepo.findAll();
         return new ResponseEntity<>(allDok,HttpStatus.OK);
+    }
+    
+    @RequestMapping(value = "/caridokterbyid/{iddokter}", method = RequestMethod.GET)
+    public ResponseEntity<dokterEntity> caridokterbyid(@PathVariable long iddokter){
+        dokterEntity dokter=dokterRepo.findOne(iddokter);
+        return new ResponseEntity<>(dokter,HttpStatus.OK);
+    }
+    
+    @RequestMapping(value = "/caridokterbynama/{namadokter}", method = RequestMethod.GET)
+    public ResponseEntity<List<dokterEntity>> caridokterbynama(@PathVariable String namadokter){
+        List<dokterEntity> dokters=dokterRepo.findDokterEntitiesByNamaDokter(namadokter);
+        return new ResponseEntity<>(dokters,HttpStatus.OK);
     }
 }
