@@ -41,13 +41,13 @@ public class dokterControler {
         return new ResponseEntity<>(allDok,HttpStatus.OK);
     }
     
-    @RequestMapping(value = "/caridokterbyid/{iddokter}", method = RequestMethod.GET)
+    @RequestMapping(value = "/id/{iddokter}", method = RequestMethod.GET)
     public ResponseEntity<dokterEntity> caridokterbyid(@PathVariable long iddokter){
         dokterEntity dokter=dokterRepo.findOne(iddokter);
         return new ResponseEntity<>(dokter,HttpStatus.OK);
     }
     
-    @RequestMapping(value = "/caridokterbynama/{namadokter}", method = RequestMethod.GET)
+    @RequestMapping(value = "/nama/{namadokter}", method = RequestMethod.GET)
     public ResponseEntity<List<dokterEntity>> caridokterbynama(@PathVariable String namadokter){
         List<dokterEntity> dokters=dokterRepo.findDokterEntitiesByNamaDokter(namadokter);
         return new ResponseEntity<>(dokters,HttpStatus.OK);
