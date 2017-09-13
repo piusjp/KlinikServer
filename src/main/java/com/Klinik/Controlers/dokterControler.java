@@ -36,19 +36,19 @@ public class dokterControler {
     }
     
     @RequestMapping(value = "/alldokter",method = RequestMethod.GET)
-    public ResponseEntity<List<dokterEntity>> allpasien(){
+    public ResponseEntity<List<dokterEntity>> allPasien(){
         List<dokterEntity> allDok=dokterRepo.findAll();
         return new ResponseEntity<>(allDok,HttpStatus.OK);
     }
     
     @RequestMapping(value = "/id/{iddokter}", method = RequestMethod.GET)
-    public ResponseEntity<dokterEntity> caridokterbyid(@PathVariable long iddokter){
-        dokterEntity dokter=dokterRepo.findOne(iddokter);
+    public ResponseEntity<dokterEntity> cariDokterById(@PathVariable long idDokter){
+        dokterEntity dokter=dokterRepo.findOne(idDokter);
         return new ResponseEntity<>(dokter,HttpStatus.OK);
     }
     
     @RequestMapping(value = "/nama/{namadokter}", method = RequestMethod.GET)
-    public ResponseEntity<List<dokterEntity>> caridokterbynama(@PathVariable String namadokter){
+    public ResponseEntity<List<dokterEntity>> cariDokterByNama(@PathVariable String namadokter){
         List<dokterEntity> dokters=dokterRepo.findDokterEntitiesByNamaDokter(namadokter);
         return new ResponseEntity<>(dokters,HttpStatus.OK);
     }
