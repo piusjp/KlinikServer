@@ -40,15 +40,15 @@ public class penangananControler {
         return new ResponseEntity<>(allpenanganan,HttpStatus.OK);
     }
     
-//    @RequestMapping(value = "/id/{idPenanganan}",method = RequestMethod.GET)
-//    public ResponseEntity<penangananEntity> cariPenangananById(@PathVariable Long idPenanganan){
-//        penangananEntity penanganan=penangananRepo.findOne(idPenanganan);
-//        return new ResponseEntity<>(penanganan,HttpStatus.OK);
-//    }
-//    
-//    @RequestMapping(value = "/nama/{namaPenanganan}",method = RequestMethod.GET)
-//    public ResponseEntity<List<penangananEntity>> cariPenangananByNama(@PathVariable String namaPenanganan){
-//        List<penangananEntity> penanganans=penangananRepo.findPenangananEntitiesByNamaPenanganan(namaPenanganan);
-//        return new ResponseEntity<>(penanganans,HttpStatus.OK);
-//    }
+    @RequestMapping(value = "/id/{idPenanganan}",method = RequestMethod.GET)
+    public ResponseEntity<penangananEntity> cariPenangananById(@PathVariable Long idPenanganan){
+        penangananEntity penanganan=penangananRepo.findOne(idPenanganan);
+        return new ResponseEntity<>(penanganan,HttpStatus.OK);
+    }
+    
+    @RequestMapping(value = "/waktu/{waktuPenanganan}",method = RequestMethod.GET)
+    public ResponseEntity<List<penangananEntity>> cariPenangananByNama(@PathVariable String waktuPenanganan){
+        List<penangananEntity> penanganans=penangananRepo.findPenangananEntitiesByWaktuPenanganan(waktuPenanganan);
+        return new ResponseEntity<>(penanganans,HttpStatus.OK);
+    }
 }

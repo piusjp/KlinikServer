@@ -19,5 +19,5 @@ import org.springframework.http.ResponseEntity;
 @RestResource
 public interface penangananRepository extends JpaRepository<penangananEntity, Long>{
     
-    public List<penangananEntity> findPenangananEntitiesByNamaPenanganan(String namaPenanganan);
+    public List<penangananEntity> findPenangananEntitiesByWaktuPenanganan(String namaPenanganan);
 }
