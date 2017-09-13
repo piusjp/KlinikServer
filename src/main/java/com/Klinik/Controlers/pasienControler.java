@@ -42,14 +42,14 @@ public class pasienControler {
     }
     
     @RequestMapping(value = "/id/{idPasien}",method = RequestMethod.GET)
-    public ResponseEntity<pasienEntity> cariPasienById(@PathVariable long idPasien){
+    public ResponseEntity<pasienEntity> cariPasienById(@PathVariable Long idPasien){
         pasienEntity pasien=pasienRepo.findOne(idPasien);
         return new ResponseEntity<>(pasien,HttpStatus.OK);
     }
     
     @RequestMapping(value = "/nama/{namaPasien}",method = RequestMethod.GET)
-    public ResponseEntity<List<pasienEntity>> cariPasienByNama(@PathVariable String namapasien){
-        List<pasienEntity> pasiens=pasienRepo.findPasienEntitiesByNamaPasien(namapasien);
+    public ResponseEntity<List<pasienEntity>> cariPasienByNama(@PathVariable String namaPasien){
+        List<pasienEntity> pasiens=pasienRepo.findPasienEntitiesByNamaPasien(namaPasien);
         return new ResponseEntity<>(pasiens,HttpStatus.OK);
     }
     
