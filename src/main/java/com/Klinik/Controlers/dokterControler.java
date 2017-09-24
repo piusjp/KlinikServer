@@ -53,13 +53,4 @@ public class dokterControler {
         List<dokterEntity> dokters=dokterRepo.findDokterEntitiesByNamaDokter(namaDokter);
         return new ResponseEntity<>(dokters,HttpStatus.OK);
     }
-    
-//    @RequestMapping(value = "/list",method = RequestMethod.GET)
-//    public String index(Model model){
-//        List<dokterEntity> dokters=(List<dokterEntity>)dokterRepo.findAll();
-//        model.addAttribute("dokters", dokters);
-//        return "index";
-//    }
-    
-    
 }
