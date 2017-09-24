@@ -20,4 +20,5 @@ public interface dokterRepository extends JpaRepository<dokterEntity, Long>{
     
     public List<dokterEntity> findDokterEntitiesByNamaDokter(String namaDokter);
     
+    public List<dokterEntity> findDokterEntitiesByKtpDokter(String ktpDokter);
 }
