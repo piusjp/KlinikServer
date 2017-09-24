@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Dokter</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>Input Dokter Baru</h1>
+        
+        <table>
+            <tr>
+                <th>idDokter</th>
+                <th>ktpDokter</th>
+                <th>namaDokter</th>
+                <th>spesialisDokter</th>
+                <th>alamatDokter</th>
+                <th>kontakDokter</th>
+                <th>tanggalLahirDokter</th>
+                <th>tempatLahirDokter</th>
+            </tr>
+            
+            <tr th:each="dokter:${dokters}">
+                <td th:text="${dokter.idDokter}">ads</td>
+                <td th:text="${dokter.ktpDokter}">asd</td>
+                <td th:text="${dokter.namaDokter}">asd</td>
+                <td th:text="${dokter.spesialisDokter}">asd</td>
+                <td th:text="${dokter.alamatDokter}">asd</td>
+                <td th:text="${dokter.kontakDokter}">asd</td>
+                <td th:text="${dokter.tanggalLahirDokter}">asd</td>
+                <td th:text="${dokter.tempatLahirDokter}">asd</td>
+            </tr>
+            
+        </table>
+        
+    </body>
+</html>

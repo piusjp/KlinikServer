@@ -11,6 +11,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -52,4 +53,13 @@ public class dokterControler {
         List<dokterEntity> dokters=dokterRepo.findDokterEntitiesByNamaDokter(namaDokter);
         return new ResponseEntity<>(dokters,HttpStatus.OK);
     }
+    
+//    @RequestMapping(value = "/list",method = RequestMethod.GET)
+//    public String index(Model model){
+//        List<dokterEntity> dokters=(List<dokterEntity>)dokterRepo.findAll();
+//        model.addAttribute("dokters", dokters);
+//        return "index";
+//    }
+    
+    
 }
