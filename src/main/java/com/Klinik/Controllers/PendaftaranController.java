@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping(value = "/petugaspendaftaran")
-public class PetugasPendaftaranController {
+public class PendaftaranController {
     
     @Autowired
     public PendaftaranService petugasPendaftaranServ;
