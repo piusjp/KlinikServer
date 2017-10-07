@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.Klinik.Controlers;
+package com.Klinik.Controllers;
 
-import com.Klinik.Entities.penangananEntity;
-import com.Klinik.Repositories.penangananRepository;
+import com.Klinik.Entities.PenangananEntity;
+import com.Klinik.Repositories.PenangananRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -23,32 +23,32 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping(value = "/penanganan")
-public class penangananControler {
+public class PenangananController {
     
     @Autowired
-    public penangananRepository penangananRepo;
+    public PenangananRepository penangananRepo;
     
     @RequestMapping(value = "/newpenanganan",method = RequestMethod.POST)
-    public ResponseEntity<penangananEntity> updatePenanganan(@RequestBody penangananEntity penangananEnt){
-        penangananEntity allPenanganan=penangananRepo.saveAndFlush(penangananEnt);
+    public ResponseEntity<PenangananEntity> updatePenanganan(@RequestBody PenangananEntity penangananEnt){
+        PenangananEntity allPenanganan=penangananRepo.saveAndFlush(penangananEnt);
         return new ResponseEntity<>(allPenanganan,HttpStatus.CREATED);
     }
     
     @RequestMapping(value = "/allpenanganan",method = RequestMethod.GET)
-    public ResponseEntity<List<penangananEntity>> allpenanganan(){
-        List<penangananEntity> allpenanganan=penangananRepo.findAll();
+    public ResponseEntity<List<PenangananEntity>> allpenanganan(){
+        List<PenangananEntity> allpenanganan=penangananRepo.findAll();
         return new ResponseEntity<>(allpenanganan,HttpStatus.OK);
     }
     
     @RequestMapping(value = "/id/{idPenanganan}",method = RequestMethod.GET)
-    public ResponseEntity<penangananEntity> cariPenangananById(@PathVariable Long idPenanganan){
-        penangananEntity penanganan=penangananRepo.findOne(idPenanganan);
+    public ResponseEntity<PenangananEntity> cariPenangananById(@PathVariable Long idPenanganan){
+        PenangananEntity penanganan=penangananRepo.findOne(idPenanganan);
         return new ResponseEntity<>(penanganan,HttpStatus.OK);
     }
     
     @RequestMapping(value = "/waktu/{waktuPenanganan}",method = RequestMethod.GET)
-    public ResponseEntity<List<penangananEntity>> cariPenangananByNama(@PathVariable String waktuPenanganan){
-        List<penangananEntity> penanganans=penangananRepo.findPenangananEntitiesByWaktuPenanganan(waktuPenanganan);
+    public ResponseEntity<List<PenangananEntity>> cariPenangananByNama(@PathVariable String waktuPenanganan){
+        List<PenangananEntity> penanganans=penangananRepo.findPenangananEntitiesByWaktuPenanganan(waktuPenanganan);
         return new ResponseEntity<>(penanganans,HttpStatus.OK);
     }
 }

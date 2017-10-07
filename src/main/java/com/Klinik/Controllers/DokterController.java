@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.Klinik.Controlers;
+package com.Klinik.Controllers;
 
-import com.Klinik.Entities.dokterEntity;
-import com.Klinik.Repositories.dokterRepository;
+import com.Klinik.Entities.DokterEntity;
+import com.Klinik.Repositories.DokterRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -25,32 +25,32 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(value="/dokter")
-public class dokterControler {
+public class DokterController {
     
     @Autowired
-    private dokterRepository dokterRepo;
+    private DokterRepository dokterRepo;
     
     @RequestMapping(value = "/newdokter",method =RequestMethod.POST )
-    public ResponseEntity<dokterEntity> updateDokter(@RequestBody dokterEntity dokterEnt){
-        dokterEntity newDok=dokterRepo.saveAndFlush(dokterEnt);
+    public ResponseEntity<DokterEntity> updateDokter(@RequestBody DokterEntity dokterEnt){
+        DokterEntity newDok=dokterRepo.saveAndFlush(dokterEnt);
         return new ResponseEntity<>(newDok,HttpStatus.CREATED);
     }
     
     @RequestMapping(value = "/alldokter",method = RequestMethod.GET)
-    public ResponseEntity<List<dokterEntity>> allPasien(){
-        List<dokterEntity> allDok=dokterRepo.findAll();
+    public ResponseEntity<List<DokterEntity>> allPasien(){
+        List<DokterEntity> allDok=dokterRepo.findAll();
         return new ResponseEntity<>(allDok,HttpStatus.OK);
     }
     
     @RequestMapping(value = "/id/{idDokter}", method = RequestMethod.GET)
-    public ResponseEntity<dokterEntity> cariDokterById(@PathVariable Long idDokter){
-        dokterEntity dokter=dokterRepo.findOne(idDokter);
+    public ResponseEntity<DokterEntity> cariDokterById(@PathVariable Long idDokter){
+        DokterEntity dokter=dokterRepo.findOne(idDokter);
         return new ResponseEntity<>(dokter,HttpStatus.OK);
     }
     
     @RequestMapping(value = "/nama/{namaDokter}", method = RequestMethod.GET)
-    public ResponseEntity<List<dokterEntity>> cariDokterByNama(@PathVariable String namaDokter){
-        List<dokterEntity> dokters=dokterRepo.findDokterEntitiesByNamaDokter(namaDokter);
+    public ResponseEntity<List<DokterEntity>> cariDokterByNama(@PathVariable String namaDokter){
+        List<DokterEntity> dokters=dokterRepo.findDokterEntitiesByNamaDokter(namaDokter);
         return new ResponseEntity<>(dokters,HttpStatus.OK);
     }
 }

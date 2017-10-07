@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.Klinik.Controlers;
+package com.Klinik.Controllers;
 
-import com.Klinik.Entities.pasienEntity;
-import com.Klinik.Repositories.pasienRepository;
+import com.Klinik.Entities.PasienEntity;
+import com.Klinik.Repositories.PasienRepository;
 import java.util.List;
 import javax.xml.ws.Response;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,32 +24,32 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping(value = "/pasien")
-public class pasienControler {
+public class PasienController {
     
     @Autowired
-    public pasienRepository pasienRepo;
+    public PasienRepository pasienRepo;
     
     @RequestMapping(value = "/newpasien", method = RequestMethod.POST)
-    public ResponseEntity<pasienEntity> updatePasien(@RequestBody pasienEntity pasienEnt ){
-        pasienEntity allPasien=pasienRepo.saveAndFlush(pasienEnt);
+    public ResponseEntity<PasienEntity> updatePasien(@RequestBody PasienEntity pasienEnt ){
+        PasienEntity allPasien=pasienRepo.saveAndFlush(pasienEnt);
         return new ResponseEntity<>(allPasien,HttpStatus.CREATED);
     }
     
     @RequestMapping(value = "/allpasien",method = RequestMethod.GET)
-    public ResponseEntity<List<pasienEntity>> allpasien(){
-        List<pasienEntity> allpasien=pasienRepo.findAll();
+    public ResponseEntity<List<PasienEntity>> allpasien(){
+        List<PasienEntity> allpasien=pasienRepo.findAll();
         return new ResponseEntity<>(allpasien,HttpStatus.OK);
     }
     
     @RequestMapping(value = "/id/{idPasien}",method = RequestMethod.GET)
-    public ResponseEntity<pasienEntity> cariPasienById(@PathVariable Long idPasien){
-        pasienEntity pasien=pasienRepo.findOne(idPasien);
+    public ResponseEntity<PasienEntity> cariPasienById(@PathVariable Long idPasien){
+        PasienEntity pasien=pasienRepo.findOne(idPasien);
         return new ResponseEntity<>(pasien,HttpStatus.OK);
     }
     
     @RequestMapping(value = "/nama/{namaPasien}",method = RequestMethod.GET)
-    public ResponseEntity<List<pasienEntity>> cariPasienByNama(@PathVariable String namaPasien){
-        List<pasienEntity> pasiens=pasienRepo.findPasienEntitiesByNamaPasien(namaPasien);
+    public ResponseEntity<List<PasienEntity>> cariPasienByNama(@PathVariable String namaPasien){
+        List<PasienEntity> pasiens=pasienRepo.findPasienEntitiesByNamaPasien(namaPasien);
         return new ResponseEntity<>(pasiens,HttpStatus.OK);
     }
     
