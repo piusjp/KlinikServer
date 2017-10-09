@@ -8,7 +8,6 @@ package com.Klinik.Controllers;
 import com.Klinik.Entities.PasienEntity;
 import com.Klinik.Repositories.PasienRepository;
 import java.util.List;
-import javax.xml.ws.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

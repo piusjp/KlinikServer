@@ -6,7 +6,6 @@
 package com.Klinik.Repositories;
 
 import com.Klinik.Entities.PendaftaranEntity;
-import java.io.Serializable;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -20,8 +19,8 @@ import org.springframework.data.rest.core.annotation.RestResource;
 @RestResource
 public interface PendaftaranRepository extends JpaRepository<PendaftaranEntity, Long>{
     
-    public List<PendaftaranEntity> findPetugasPendaftaranEntitysByIdPetugasPendaftaran(Long idPetugasPendaftaran);
+    public List<PendaftaranEntity> findPetugasPendaftaranEntitysByIdPendaftaran(Long idPetugasPendaftaran);
     
-    @Query("select username from pendaftaranEntity where username=?1 and password=?2")
+    @Query("select p from PendaftaranEntity p where p.usernamePendaftaran = ?1 and p.passwordPendaftaran = ?2")
     public Optional<PendaftaranEntity> findUsernameByUsername(String uname, String pwd);
 }

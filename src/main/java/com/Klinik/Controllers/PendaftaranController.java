@@ -33,9 +33,4 @@ public class PendaftaranController {
         else
             return new ResponseEntity<>(HttpStatus.OK);
     }
-    
-    
-    
-//    @RequestMapping(value = "/login",method = RequestMethod.POST)
-    
 }

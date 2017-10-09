@@ -22,10 +22,10 @@ import org.springframework.stereotype.Service;
 public class PendaftaranImplement implements PendaftaranService{
     
     @Autowired
-    private PendaftaranRepository petugasPendaftaranRepo;
+    private PendaftaranRepository pendaftaranRepository;
     
     public boolean login (PendaftaranEntity dataPetugas){
-        Optional<PendaftaranEntity> result = petugasPendaftaranRepo.findUsernameByUsername(dataPetugas.getUsernamePendaftaran(), dataPetugas.getPasswordPendaftaran());
+        Optional<PendaftaranEntity> result = pendaftaranRepository.findUsernameByUsername(dataPetugas.getUsernamePendaftaran(), dataPetugas.getPasswordPendaftaran());
         if(result.isPresent()){
             return true;
         }else{
