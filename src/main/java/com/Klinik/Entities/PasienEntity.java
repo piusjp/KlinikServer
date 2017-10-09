@@ -18,37 +18,31 @@ import lombok.Data;
  */
 @Entity
 @Data
-public class penangananEntity{
+public class PasienEntity {
 
-    public penangananEntity() {
+    public PasienEntity() {
     }
     
     @Column
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long idPenanganan;
+    private Long idPasien;
     
     @Column
-    private String idPasien;
+    private String ktpPasien;
     
     @Column
-    private String idDokter;
+    private String namaPasien;
     
     @Column
-    private String waktuPenanganan;
+    private String alamatPasien;
     
     @Column
-    private String biayaPenanganan;
+    private String kontakPasien;
     
     @Column
-    private String ruangPenanganan;
+    private String tanggalLahirPasien;
     
     @Column
-    private String keluhanPenanganan;
-    
-    @Column
-    private String jenisPenyakit;
-    
-    @Column
-    private String resepObat;
+    private String tempatLahirPasien;
 }

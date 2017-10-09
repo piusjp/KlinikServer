@@ -18,31 +18,34 @@ import lombok.Data;
  */
 @Entity
 @Data
-public class pasienEntity {
+public class DokterEntity {
 
-    public pasienEntity() {
+    public DokterEntity() {
     }
-    
+
     @Column
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long idPasien;
+    private Long idDokter;
+
+    @Column
+    private String ktpDokter;
+
+    @Column
+    private String namaDokter;
     
     @Column
-    private String ktpPasien;
+    private String spesialisDokter;
     
     @Column
-    private String namaPasien;
+    private String alamatDokter;
     
     @Column
-    private String alamatPasien;
+    private String kontakDokter;
     
     @Column
-    private String kontakPasien;
+    private String tanggalLahirDokter;
     
     @Column
-    private String tanggalLahirPasien;
-    
-    @Column
-    private String tempatLahirPasien;
+    private String tempatLahirDokter;
 }
