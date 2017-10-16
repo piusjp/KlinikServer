@@ -28,6 +28,10 @@ public class DokterController {
     
     @Autowired
     private DokterRepository dokterRepo;
+
+    public DokterController(DokterRepository dokterRepo) {
+        this.dokterRepo = dokterRepo;
+    }
     
     @RequestMapping(value = "/newdokter",method =RequestMethod.POST )
     public ResponseEntity<DokterEntity> updateDokter(@RequestBody DokterEntity dokterEnt){
