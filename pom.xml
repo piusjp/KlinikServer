@@ -8,7 +8,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>Klinik</name>
+	<name>KlinikServer</name>
 	<description>Klinik project for Spring Boot</description>
 
 	<parent>
